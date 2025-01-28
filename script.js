@@ -56,7 +56,6 @@ function verificarMatricula(matricula) {
             }
             else {
                 try {
-                    // Tenta analisar como JSON SOMENTE se não for uma resposta simples
                     const data = JSON.parse(resultado);
                     if (data.status === 'nao_votou') {
                         alertElement.textContent = `Voce confirmar ser ${data.nome}, Pressione Confirmar novamente para continuar Ou Apagar para Cancelar`;

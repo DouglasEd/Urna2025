@@ -1,9 +1,6 @@
 <?php
 // Configurações do banco de dados
-$host = "localhost";
-$usuario = "root";
-$senha = "#Decb@2025";
-$banco = "urna";
+include('credentials.php')
 
 // Conecta ao banco de dados
 $conexao = new mysqli($host, $usuario, $senha, $banco);
@@ -17,7 +14,7 @@ if ($conexao->connect_error) {
 $matricula = $_POST['matricula'];
 
 // Prepara a consulta SQL usando prepared statement para evitar SQL injection
-$stmt = $conexao->prepare("SELECT votou, Nome FROM discentes WHERE Matricula = ?");
+$stmt = $conexao->prepare("SELECT Votou, Nome FROM discentes WHERE Matricula = ?");
 $stmt->bind_param("s", $matricula);
 $stmt->execute();
 $resultado = $stmt->get_result();
