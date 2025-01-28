@@ -1,0 +1,62 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container geral */
+#main {
+    padding: 20px;
+}
+
+/* Container para as chapas */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo de cada chapa */
+.chapa {
+    width: 45%; /* Cada chapa ocupa 45% da largura */
+    background-color: #fff;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título e descrição */
+.chapa h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.chapa p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Garante que após cada 2 chapas, uma nova linha seja criada */
+.clear {
+    clear: both;
+}
+#mensagem{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    display: flex;
+    width: 98%;
+    height: 98%;
+    align-self: center;
+    background-color:rgba(54, 0, 52, 0.637);
+    color: rgb(255, 255, 255);
+    font-size: 175px;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    visibility: hidden;
+}
