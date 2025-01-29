@@ -15,15 +15,18 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 2vh 4vw;
+    height: 25vh;
+    justify-items: center;
+    justify-content: center;
 }
 
 /* Estilo de cada chapa */
 .chapa {
-    width: 45%; /* Cada chapa ocupa 45% da largura */
+    width: 40%;
     background-color: #fff;
     border: 2px solid #ddd;
-    padding: 20px;
+    padding: 2vh 2vw;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -54,7 +57,7 @@ body {
     align-self: center;
     background-color:rgba(54, 0, 52, 0.637);
     color: rgb(255, 255, 255);
-    font-size: 175px;
+    font-size: 10vw;
     justify-content: center;
     align-items: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

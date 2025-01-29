@@ -16,9 +16,6 @@ const mensagemDiv = document.getElementById('mensagem');
                 });
                 function mostrarMensagem() {
                     mensagemDiv.style.visibility = "visible";
-                    setTimeout(() => {
-                        mensagemDiv.style.display = "hidden";
-                    }, 3000);
                 }
         }
     }

@@ -35,22 +35,26 @@ function verificarMatricula(matricula) {
     formData.append('matricula', matricula);
     Matricula = matricula;
     // Faz a requisição para o PHP
-    fetch('verificar.php', {
+    fetch('verificar.php', {    
         method: 'POST',
         body: formData
     })
         .then(response => response.text()) // Obtém a resposta como texto
         .then(resultado => {
             if (resultado === 'nao_encontrado') { // Verifica respostas simples primeiro
+                alertElement.style.visibility="visible";
                 alertElement.textContent = 'Matrícula não encontrada.';
                 confirmarVotacao = false;
             } else if (resultado === 'ja_votou') {
+                alertElement.style.visibility="visible";
                 alertElement.textContent = 'Este discente já votou.';
                 confirmarVotacao = false;
             } else if (resultado === 'erro_banco') {
+                alertElement.style.visibility="visible";
                 alertElement.textContent = 'Erro ao acessar o banco de dados. Contate o suporte.';
                 confirmarVotacao = false;
             } else if (resultado === 'erro') {
+                alertElement.style.visibility="visible";
                 alertElement.textContent = 'Ocorreu um erro. Contate o suporte.';
                 confirmarVotacao = false;
             }
