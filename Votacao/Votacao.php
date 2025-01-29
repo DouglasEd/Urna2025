@@ -1,12 +1,8 @@
 <?php
 // Configurações do banco de dados
-$host = "localhost";
-$usuario = "root";
-$senha = "#Decb@2025";
-$banco = "urna";
-
+require_once '../credentials.php';
 // Conecta ao banco de dados
-$conexao = new mysqli($host, $usuario, $senha, $banco);
+$conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 // Verifica se houve erro na conexão
 if ($conexao->connect_error) {
@@ -51,7 +47,6 @@ $conexao->close();
 </head>
 <body>
     <div id="main">
-        
         <div class="container">
             <?php foreach ($chapas as $index => $chapa): ?>
                 <!-- Cada quadrado representando uma chapa -->
@@ -62,7 +57,7 @@ $conexao->close();
                     <div class="integrantes">
                         <?php
                         // Conecta novamente para pegar os integrantes
-                        $conexao = new mysqli($host, $usuario, $senha, $banco);
+                        $conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
                         if ($conexao->connect_error) {
                             die("Erro na conexão: " . $conexao->connect_error);
                         }
@@ -94,6 +89,6 @@ $conexao->close();
         </div>
     </div>
     <div id='mensagem'> VOTO EFETUADO</div>
-    <script src="script.js"></script>
+    <script src="scriptVote.js"></script>
 </body>
 </html>

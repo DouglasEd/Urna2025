@@ -1,9 +1,8 @@
 <?php
 // Configurações do banco de dados
-include('credentials.php')
-
+require_once 'credentials.php';
 // Conecta ao banco de dados
-$conexao = new mysqli($host, $usuario, $senha, $banco);
+$conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 // Verifica se houve erro na conexão
 if ($conexao->connect_error) {
@@ -22,7 +21,7 @@ $resultado = $stmt->get_result();
 // Verifica se encontrou a matrícula
 if ($resultado->num_rows > 0) {
     $row = $resultado->fetch_assoc();
-    if ($row['votou'] == 1) {
+    if ($row['Votou'] == 1) {
         echo "ja_votou";
     } else {
         // Retorna um JSON com o nome e status

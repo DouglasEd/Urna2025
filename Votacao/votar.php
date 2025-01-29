@@ -1,12 +1,8 @@
 <?php
 // Configurações do banco de dados
-$host = "localhost";
-$usuario = "root";
-$senha = "#Decb@2025";
-$banco = "urna";
-
+require_once '../credentials.php';
 // Conecta ao banco de dados
-$conexao = new mysqli($host, $usuario, $senha, $banco);
+$conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 // Verifica se houve erro na conexão
 if ($conexao->connect_error) {
