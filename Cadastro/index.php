@@ -1,6 +1,8 @@
 <?php
 require_once "../credentials.php";
 
+$ipv4 = $_SERVER['SERVER_ADDR'] ?? 'Não foi possível obter o IPv4';
+
 // Conecta ao banco de dados
 $conexao = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -63,14 +65,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Chapa</title>
-    <style>
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
-        .membro-block { border: 1px solid #ccc; padding: 15px; margin: 10px 0; border-radius: 5px; }
-        .btn { padding: 8px 15px; margin: 5px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px; }
-        .btn-remover { background-color: #f44336; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="ip-info">
+        IPv4 do Servidor: <?php echo htmlspecialchars($ipv4); ?>
+    </div>
     <div class="container">
         <h1>Cadastro de Chapa</h1>
         <form method="POST">
