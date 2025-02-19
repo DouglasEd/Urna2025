@@ -26,7 +26,7 @@ body {
 .display {
     font-size: 4vw;
     text-align: center;
-    margin: 1vh 0px 3vh 0px;
+    margin: 4vh 0px 2vh 0px;
     padding: 2vh 0px;
     color: #1b0020;
     border-radius: 10px;
@@ -44,7 +44,7 @@ body {
 .teclado {
     padding: 3vh 2vw;
     margin-top: 2vh;
-    width: 40vw;
+    width: 35vw;
     height: auto;
     border-radius: 15px;
     background-color: rgb(122, 1, 192);
@@ -59,6 +59,7 @@ body {
 button {
     padding: 5px 5px;
     font-size: 6vh;
+    height: auto;
     border: none;
     background: #28182b;
     color: white;

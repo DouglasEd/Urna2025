@@ -1,4 +1,8 @@
 const mensagemDiv = document.getElementById('mensagem');
+const audio = new Audio('../Audio/AudioUrna.m4a');
+    function playAudio() {
+        audio.play(); // Inicia a reprodução
+    }
     function votarChapa(nomeChapa, matricula) {
         let confirmacao = confirm(`Deseja votar na chapa ${nomeChapa}?`);
         if (confirmacao) {
@@ -6,6 +10,7 @@ const mensagemDiv = document.getElementById('mensagem');
                 .then(response => response.text())
                 .then(data => {
                     mostrarMensagem();
+                    playAudio();
                     setTimeout(() => {
                         window.location.href = '../';  // ou 'http://localhost/urna/index.html'
                     }, 4000);
