@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informar Matrícula</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-800">
+
+    <div id="main" class="m-4 p-3 h-[95vh] flex flex-col items-center">
+        
+        <!-- Texto "Eleições CA 2025" com gradiente e sombra -->
+        <p class="my-16 font-bold text-7xl text-white">
+            Eleições CA 2025
+        </p>
+
+        <input type="text" class="display w-[35vw] text-center text-4xl my-4 py-8 px-0 text-[#1b0020] rounded-xl" readonly placeholder="Digite sua matrícula">
+        
+        <div id="Alert" class="font-serif font-bold text-2xl bg-white text-[#ff6767]"></div>
+
+        <div class="teclado p-6 my-8 w-[35vw] rounded-2xl bg-purple-700">
+            <div class="teclas grid grid-cols-3 gap-y-4 gap-x-4">
+                <button onclick="addNumero('1')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">1</button>
+                <button onclick="addNumero('2')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">2</button>
+                <button onclick="addNumero('3')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">3</button>
+                <button onclick="addNumero('4')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">4</button>
+                <button onclick="addNumero('5')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">5</button>
+                <button onclick="addNumero('6')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">6</button>
+                <button onclick="addNumero('7')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">7</button>
+                <button onclick="addNumero('8')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">8</button>
+                <button onclick="addNumero('9')" class="p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577]">9</button>
+                <button onclick="addNumero('0')" class="tecla-zero p-3 text-6xl bg-[#28182b] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#704577] col-span-2">0</button>
+                <button onclick="apagar()" class="tecla-apagar p-3 text-6xl bg-[#ff7b00] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#ff6a00]">←</button>
+                <button onclick="enviar()" class="tecla-enviar p-3 text-6xl bg-[#015e10] text-white rounded-2xl cursor-pointer transition-colors hover:bg-[#1ad601] col-span-3">Avançar</button>
+            </div>
+        </div>
+
+        <img src="images/Ada.png" alt="Logo Caccal" id="Logo-Caccal" class="w-[10vw] bg-white rounded-lg h-auto mt-auto mb-5">
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>

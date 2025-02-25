@@ -1,8 +1,16 @@
 <?php
-// Configurações do banco de dados
-require_once '../credentials.php';
-// Conecta ao banco de dados
-$conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+require_once __DIR__ . '/../vendor/autoload.php'; // Garante o autoload do Composer
+
+use Dotenv\Dotenv;
+
+// Carrega as variáveis do .env
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();    
+
+$ipv4 = $_SERVER['SERVER_ADDR'] ?? 'Não foi possível obter o IPv4';
+
+// Conecta ao banco de dados usando as variáveis do .env
+$conexao = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
 // Verifica se houve erro na conexão
 if ($conexao->connect_error) {
@@ -43,15 +51,17 @@ $conexao->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapinhas</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div id="main">
-        <div class="container">
+<body class="font-sans bg-gray-100 m-0 p-0">
+
+    <div id="main" class="p-5">
+        <div class="flex flex-wrap gap-[2vh] gap-[4vw] justify-center items-start">
+
             <?php foreach ($chapas as $index => $chapa): ?>
                 <!-- Cada quadrado representando uma chapa -->
-                <div class="chapa" onclick="votarChapa('<?php echo htmlspecialchars($chapa['Nome_Chapa']); ?>', '<?php echo htmlspecialchars($matricula); ?>')">
-                    <h3><?php echo htmlspecialchars($chapa['Nome_Chapa']); ?></h3>
+                <div class="w-2/5 bg-white border-2 border-gray-300 p-5 rounded-lg shadow-md text-center cursor-pointer" onclick="votarChapa('<?php echo htmlspecialchars($chapa['Nome_Chapa']); ?>', '<?php echo htmlspecialchars($matricula); ?>')">
+                    <h3 class="text-lg mb-2"><?php echo htmlspecialchars($chapa['Nome_Chapa']); ?></h3>
                     
                     <!-- Exibe os integrantes da chapa com cargo -->
                     <div class="integrantes">
@@ -83,12 +93,17 @@ $conexao->close();
 
                 <!-- Verifica se deve iniciar uma nova linha após 2 chapas -->
                 <?php if (($index + 1) % 2 == 0): ?>
-                    <div class="clear"></div>
+                    <div class="w-full"></div>
                 <?php endif; ?>
             <?php endforeach; ?>
+
         </div>
     </div>
-    <div id='mensagem'> VOTO EFETUADO</div>
-    <script src="scriptVote.js"></script>
+
+    <div id="mensagem" class="absolute top-1 left-1 w-full h-full flex items-center justify-center bg-[#360034a2] text-white text-[10vw] font-impact">
+        VOTO EFETUADO
+    </div>
+
+    <script src="src/scriptVote.js"></script>
 </body>
 </html>

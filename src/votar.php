@@ -1,6 +1,7 @@
 <?php
 // Configurações do banco de dados
 require_once '../credentials.php';
+
 // Conecta ao banco de dados
 $conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 

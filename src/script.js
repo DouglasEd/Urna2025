@@ -20,7 +20,7 @@ function apagar() {
 function enviar() {
     if (confirmarVotacao) {
         // Redireciona para outra página se já houve a confirmação
-        window.location.href = `Votacao/Votacao.php?matricula=${Matricula}`;
+        window.location.href = `votacao/votacao.php?matricula=${Matricula}`;
         return;
     }
 
