@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'conectarBD.php';
+require_once __DIR__ . '/conectarBD.php';
 
 // Recebe a matrícula enviada via POST
 $matricula = $_POST['matricula'];

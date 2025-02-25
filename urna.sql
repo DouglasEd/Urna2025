@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chapas` (
-  `Nome_Chapa` varchar(30) NOT NULL,
-  `Votos` int(50) NOT NULL DEFAULT 0
+  `nome_chapa` varchar(30) NOT NULL,
+  `votos` int(50) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -39,9 +39,9 @@ CREATE TABLE `chapas` (
 --
 
 CREATE TABLE `discentes` (
-  `Nome` varchar(30) NOT NULL,
-  `Matricula` varchar(12) NOT NULL,
-  `Votou` tinyint(1) NOT NULL DEFAULT 0
+  `nome` varchar(30) NOT NULL,
+  `matricula` varchar(12) NOT NULL,
+  `votou` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -51,9 +51,9 @@ CREATE TABLE `discentes` (
 --
 
 CREATE TABLE `integrantes` (
-  `Nome` varchar(30) NOT NULL,
-  `Chapa` varchar(30) NOT NULL,
-  `Cargo` varchar(30) NOT NULL
+  `nome` varchar(30) NOT NULL,
+  `chapa` varchar(30) NOT NULL,
+  `cargo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 

@@ -35,7 +35,7 @@ function verificarMatricula(matricula) {
     formData.append('matricula', matricula);
     Matricula = matricula;
     // Faz a requisição para o PHP
-    fetch('/verificar-matricula', {    
+    fetch('verificarMatricula.php', {    
         method: 'POST',
         body: formData
     })
@@ -59,6 +59,7 @@ function verificarMatricula(matricula) {
                 confirmarVotacao = false;
             }
             else {
+                
                 try {
                     const data = JSON.parse(resultado);
                     if (data.status === 'nao_votou') {

@@ -7,14 +7,14 @@ $nomeChapa = isset($_GET['chapa']) ? $_GET['chapa'] : null;
 
 if ($matricula && $nomeChapa) {
     // Atualiza a tabela Chapas para adicionar 1 no número de votos
-    $query_update_votos = "UPDATE chapas SET Votos = Votos + 1 WHERE Nome_Chapa = ?";
+    $query_update_votos = "UPDATE chapas SET votos += 1 WHERE nome_chapa = ?";
     $stmt_update_votos = $conexao->prepare($query_update_votos);
     $stmt_update_votos->bind_param("s", $nomeChapa);
     $stmt_update_votos->execute();
     $stmt_update_votos->close();
 
     // Atualiza a tabela discentes para marcar que o aluno votou
-    $query_update_votou = "UPDATE discentes SET Votou = 1 WHERE Matricula = ?";
+    $query_update_votou = "UPDATE discentes SET votou = 1 WHERE matricula = ?";
     $stmt_update_votou = $conexao->prepare($query_update_votou);
     $stmt_update_votou->bind_param("s", $matricula); // Ou "i" se for um número
     $stmt_update_votou->execute();

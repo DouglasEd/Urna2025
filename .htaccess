@@ -5,7 +5,7 @@ RewriteEngine On
 RewriteRule ^$ public/index.html [L]
 
 # Rota para votacao.php
-RewriteRule ^votacao/([0-9]+)$ public/votacao.php?matricula=$1 [L]
+RewriteRule ^votacao?$ public/votacao.php?matricula=$1 [L]
 
 # Rota para cadastro.php
 RewriteRule ^cadastro?$ public/cadastro.php [L]

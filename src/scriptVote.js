@@ -20,7 +20,7 @@ const audio = new Audio('../public/audio/AudioUrna.m4a');
                     alert('Erro ao votar. Tente novamente!');
                 });
                 function mostrarMensagem() {
-                    mensagemDiv.style.visibility = "visible";
-                }
+                    mensagemDiv.classList.remove('hidden'); // Faz aparecer
+                }                
         }
     }
