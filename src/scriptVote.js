@@ -1,5 +1,5 @@
 const mensagemDiv = document.getElementById('mensagem');
-const audio = new Audio('../Audio/AudioUrna.m4a');
+const audio = new Audio('../public/audio/AudioUrna.m4a');
     function playAudio() {
         audio.play(); // Inicia a reprodução
     }
@@ -12,7 +12,7 @@ const audio = new Audio('../Audio/AudioUrna.m4a');
                     mostrarMensagem();
                     playAudio();
                     setTimeout(() => {
-                        window.location.href = '../';  // ou 'http://localhost/urna/index.html'
+                        window.location.href = '/';
                     }, 4000);
                 })
                 .catch(error => {

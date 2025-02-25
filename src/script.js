@@ -20,7 +20,7 @@ function apagar() {
 function enviar() {
     if (confirmarVotacao) {
         // Redireciona para outra página se já houve a confirmação
-        window.location.href = `votacao/votacao.php?matricula=${Matricula}`;
+        window.location.href = `/votacao?matricula=${Matricula}`;
         return;
     }
 
@@ -35,7 +35,7 @@ function verificarMatricula(matricula) {
     formData.append('matricula', matricula);
     Matricula = matricula;
     // Faz a requisição para o PHP
-    fetch('verificar.php', {    
+    fetch('/verificar-matricula', {    
         method: 'POST',
         body: formData
     })

@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     mariadb-client \
-    && docker-php-ext-install zip pdo_mysql
+    && docker-php-ext-install zip pdo_mysql mysqli
 
 # Instala o Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -20,10 +20,7 @@ COPY . /var/www/html
 
 # Define o diretório de trabalho
 WORKDIR /var/www/html
-
-# Instala as dependências do Composer
-RUN composer install --no-dev --optimize-autoloader
-
+    
 # Copia o arquivo .env.example para .env (se necessário)
 RUN cp .env.example .env
 

@@ -1,21 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php'; // Garante o autoload do Composer
-
-use Dotenv\Dotenv;
-
-// Carrega as variáveis do .env
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();    
-
-$ipv4 = $_SERVER['SERVER_ADDR'] ?? 'Não foi possível obter o IPv4';
-
-// Conecta ao banco de dados usando as variáveis do .env
-$conexao = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
-
-// Verifica se houve erro na conexão
-if ($conexao->connect_error) {
-    die("Erro na conexão: " . $conexao->connect_error);
-}
+require_once __DIR__ . '/../src/conectarBD.php';
 
 // Recebe a matrícula passada pela URL
 $matricula = isset($_GET['matricula']) ? $_GET['matricula'] : null;
@@ -44,6 +28,7 @@ if ($result->num_rows > 0) {
 }
 
 $conexao->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,7 +52,7 @@ $conexao->close();
                     <div class="integrantes">
                         <?php
                         // Conecta novamente para pegar os integrantes
-                        $conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                        $conexao = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
                         if ($conexao->connect_error) {
                             die("Erro na conexão: " . $conexao->connect_error);
                         }
@@ -104,6 +89,6 @@ $conexao->close();
         VOTO EFETUADO
     </div>
 
-    <script src="src/scriptVote.js"></script>
+    <script src="../src/scriptVote.js"></script>
 </body>
 </html>

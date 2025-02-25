@@ -1,13 +1,6 @@
 <?php
-// Configurações do banco de dados
-require_once 'credentials.php';
-// Conecta ao banco de dados
-$conexao = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
-// Verifica se houve erro na conexão
-if ($conexao->connect_error) {
-    die("Erro na conexão: " . $conexao->connect_error);
-}
+require_once __DIR__ . 'conectarBD.php';
 
 // Recebe a matrícula enviada via POST
 $matricula = $_POST['matricula'];
