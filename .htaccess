@@ -1,0 +1,17 @@
+# Habilitar o Rewrite Engine
+RewriteEngine On
+
+# Rota para a página inicial "/"
+RewriteRule ^$ public/index.html [L]
+
+# Rota para votacao.php
+RewriteRule ^votacao/([0-9]+)$ public/votacao.php?matricula=$1 [L]
+
+# Rota para cadastro.php
+RewriteRule ^cadastro?$ public/cadastro.php [L]
+
+# Rota para verificarMatricula.php
+RewriteRule ^verificar-matricula$ src/verificarMatricula.php [L]
+
+# (Opcional) Redirecionar erro 404 pra index ou uma página personalizada
+ErrorDocument 404 public/404.html
